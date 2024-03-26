@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: {{ .Values.components.analytics_workspace_management.branch }}
+    branch: {{ .Values.components.analytics_workspace_management.repository.branch }}
   timeout: 60s
   url: {{ .Values.components.analytics_workspace_management.repository.url }}
 {{- end -}}
