@@ -4,6 +4,8 @@ kind: Kustomization
 metadata:
   name: ohdsi
 spec:
+  dependsOn:
+  - name: certmanager
   force: false
   interval: 1m0s
   path: ./

@@ -13,7 +13,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: certmanager
-    namespace: {{ .Values.components.cert_manager.namespace }}
+    namespace: {{ .Release.Namespace }}
   timeout: 1m0s
   wait: false
   postBuild:
