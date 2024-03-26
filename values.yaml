@@ -28,30 +28,39 @@ components:
   cert_manager:
     enabled: true
     namespace: cert-manager
+    chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-certmanager
       branch: main
+  trust_manager:
+    enabled: true
+    namespace: cert-manager
+    chart_version: ""
   github_runner:
     enabled: false
     namespace: github-runner
+    chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-github-action-runners
       branch: main
   ingress_nginx:
     enabled: true
     namespace: nginx
+    chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-nginx
       branch: main
   jupyter_hub:
     enabled: true
     namespace: jupyterhub
+    chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-jupyter
       branch: main
   keda:
     enabled: true
     namespace: keda
+    chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-keda
       branch: main
@@ -70,6 +79,4 @@ components:
   secrets_distributor:
     enabled: true
     namespace: ohdsi
-    repository:
-      url: https://github.com/lsc-sde/iac-flux-ohdsi
-      branch: main
+    chart_version: ""
