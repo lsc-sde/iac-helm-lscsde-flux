@@ -78,5 +78,5 @@ components:
       branch: main
   secrets_distributor:
     enabled: true
-    namespace: ohdsi
+    namespace: secrets-distributor
     chart_version: ""
