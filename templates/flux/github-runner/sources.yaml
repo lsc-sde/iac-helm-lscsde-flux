@@ -24,4 +24,6 @@ spec:
       name: cluster-config
     - kind: ConfigMap
       name: deployment-config
+    - kind: ConfigMap
+      name: environment-configuration
   {{- end -}}
