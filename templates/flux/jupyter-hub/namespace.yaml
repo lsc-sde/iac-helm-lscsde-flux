@@ -1,0 +1,9 @@
+{{- if .Values.components.jupyter_hub.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.jupyter_hub.namespace }}
+    lsc-sde.io/injectJupyterCertificates: "true"
+  name: {{ .Values.components.jupyter_hub.namespace }}
+{{- end -}}

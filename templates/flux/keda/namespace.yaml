@@ -1,0 +1,8 @@
+{{- if .Values.components.keda.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.keda.namespace }}
+  name: {{ .Values.components.keda.namespace }}
+{{- end -}}

@@ -1,0 +1,8 @@
+{{- if .Values.components.cert_manager.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.cert_manager.namespace }}
+  name: {{ .Values.components.cert_manager.namespace }}
+{{- end -}}

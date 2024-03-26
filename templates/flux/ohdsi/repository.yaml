@@ -1,0 +1,12 @@
+{{- if .Values.components.ohdsi.enabled -}}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: ohdsi
+spec:
+  interval: 1m0s
+  ref:
+    branch: {{ .Values.components.ohdsi.repository.branch }}
+  timeout: 60s
+  url: {{ .Values.components.ohdsi.repository.url }}
+{{- end -}}

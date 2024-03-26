@@ -1,0 +1,10 @@
+{{- if .Values.components.metrics_server.enabled -}}
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: metrics-server
+  namespace: {{ .Values.components.metrics_server.namespace }}
+spec:
+  interval: 5m
+  url: {{ .Values.components.metrics_server.repository.url }}
+{{- end -}}

@@ -1,0 +1,15 @@
+name: Deploy new Helm Package
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - 'main'
+
+jobs:
+  release:
+    uses: lsc-sde/lsc-sde/.github/workflows/helm-release.yaml@main
+    with:
+      directory: iac/helm/lscsde-flux
+      # yamlPath: ohdsi_chart_version
+    secrets: inherit

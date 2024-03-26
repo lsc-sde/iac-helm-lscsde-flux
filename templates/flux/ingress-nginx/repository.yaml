@@ -1,0 +1,12 @@
+{{- if .Values.components.ingress_nginx.enabled -}}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: nginx
+spec:
+  interval: 1m0s
+  ref:
+    branch: {{ .Values.components.ingress_nginx.repository.branch }}
+  timeout: 60s
+  url: {{ .Values.components.ingress_nginx.repository.url }}
+{{- end -}}

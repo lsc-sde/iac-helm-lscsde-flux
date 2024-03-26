@@ -1,0 +1,8 @@
+{{- if .Values.components.analytics_workspace_management.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.analytics_workspace_management.namespace }}
+  name: {{ .Values.components.analytics_workspace_management.namespace }}
+{{- end -}}

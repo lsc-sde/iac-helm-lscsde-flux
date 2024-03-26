@@ -1,0 +1,12 @@
+{{- if .Values.components.jupyter_hub.enabled -}}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: jupyter
+spec:
+  interval: 1m0s
+  ref:
+    branch: {{ .Values.components.jupyter_hub.repository.branch }}
+  timeout: 60s
+  url: {{ .Values.components.jupyter_hub.repository.url }}
+{{- end -}}

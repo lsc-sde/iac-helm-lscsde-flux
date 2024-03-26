@@ -1,0 +1,12 @@
+{{- if .Values.components.cert_manager.enabled -}}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: certmanager
+spec:
+  interval: 1m0s
+  ref:
+    branch: {{ .Values.components.cert_manager.repository.branch }}
+  timeout: 60s
+  url: {{ .Values.components.cert_manager.repository.url }}
+{{- end -}}

@@ -1,0 +1,34 @@
+{{- if .Values.components.secrets_distributor.enabled -}}
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: secrets-distributor
+  labels:
+  annotations:
+    lsc-sde.nhs.uk/definitionVersion: "1.0.1"
+spec:
+  targetNamespace: {{ .Values.components.secrets_distributor.namespace }}
+  releaseName: secrets-distributor
+  chart:
+    spec:
+      chart: secrets-distributor
+      version: {{ .Values.components.secrets_distributor.chart_version }}
+      sourceRef:
+        kind: HelmRepository
+        name: lsc-sde
+        namespace: {{ .Release.Namespace }}
+  interval: 5m0s
+  install:
+    remediation:
+      retries: -1
+    disableWait: true
+    disableWaitForJobs: true
+  upgrade:
+    remediation:
+      retries: -1
+    disableWait: true
+    disableWaitForJobs: true
+  valuesFrom:
+  - kind: ConfigMap
+    name: secret-distributor-config
+{{- end -}}

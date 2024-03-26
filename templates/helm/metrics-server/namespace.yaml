@@ -1,0 +1,8 @@
+{{- if .Values.components.metrics_server.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.metrics_server.namespace }}
+  name: {{ .Values.components.metrics_server.namespace }}
+{{- end -}}

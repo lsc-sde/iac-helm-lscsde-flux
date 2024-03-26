@@ -1,0 +1,27 @@
+{{- if .Values.components.github_runner.enabled -}}
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: github-runner
+spec:
+  dependsOn:
+  - name: keda
+  force: false
+  interval: 1m0s
+  path: ./
+  prune: true
+  retryInterval: 1m0s
+  serviceAccountName: flux-applier
+  sourceRef:
+    kind: GitRepository
+    name: github-runner
+    namespace: {{ .Release.Namespace }}
+  timeout: 1m0s
+  wait: false
+  postBuild:
+    substituteFrom:
+    - kind: ConfigMap
+      name: cluster-config
+    - kind: ConfigMap
+      name: deployment-config
+  {{- end -}}

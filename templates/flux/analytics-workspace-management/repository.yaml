@@ -1,0 +1,12 @@
+{{- if .Values.components.analytics_workspace_management.enabled -}}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: analytics-workspace-management
+spec:
+  interval: 1m0s
+  ref:
+    branch: {{ .Values.components.analytics_workspace_management.branch }}
+  timeout: 60s
+  url: {{ .Values.components.analytics_workspace_management.repository.url }}
+{{- end -}}

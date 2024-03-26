@@ -1,0 +1,8 @@
+{{- if .Values.components.ingress_nginx.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.ingress_nginx.namespace }}
+  name: {{ .Values.components.ingress_nginx.namespace }}
+{{- end -}}

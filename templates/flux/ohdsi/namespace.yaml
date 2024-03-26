@@ -1,0 +1,9 @@
+{{- if .Values.components.ohdsi.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.ohdsi.namespace }}
+    lsc-sde.io/injectJupyterCertificates: "true"
+  name: {{ .Values.components.ohdsi.namespace }}
+{{- end -}}

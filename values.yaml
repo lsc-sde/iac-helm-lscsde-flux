@@ -1,0 +1,75 @@
+azure:
+  enabled: false
+  client_id: ""
+  tenant_id: ""
+  keyvault_name: ""
+  dns:
+    subscription_id: ""
+    private_dnz_zone: ""
+    resource_group: ""
+
+dns:
+  prefix: ""
+
+components:
+  aks_dns:
+    enabled: true
+    chart_version: ""
+  configmap_transformer:
+    enabled: false
+    chart_version: ""
+  analytics_workspace_management:
+    enabled: true
+    namespace: lscsde-workspace-mgr
+    chart_version: "" 
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-analytics-workspace-management
+      branch: main
+  cert_manager:
+    enabled: true
+    namespace: cert-manager
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-certmanager
+      branch: main
+  github_runner:
+    enabled: false
+    namespace: github-runner
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-github-action-runners
+      branch: main
+  ingress_nginx:
+    enabled: true
+    namespace: nginx
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-nginx
+      branch: main
+  jupyter_hub:
+    enabled: true
+    namespace: jupyterhub
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-jupyter
+      branch: main
+  keda:
+    enabled: true
+    namespace: keda
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-keda
+      branch: main
+  metrics_server:
+    enabled: true
+    chart_version: ""
+    namespace: metrics-server
+    repository:
+      url: https://kubernetes-sigs.github.io/metrics-server/
+  ohdsi:
+    enabled: true
+    namespace: ohdsi
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-ohdsi
+      branch: main
+  secrets_distributor:
+    enabled: true
+    namespace: ohdsi
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-ohdsi
+      branch: main

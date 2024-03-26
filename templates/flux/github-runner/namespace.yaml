@@ -1,0 +1,8 @@
+{{- if .Values.components.github_runner.enabled -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.github_runner.namespace }}
+  name: {{ .Values.components.github_runner.namespace }}
+{{- end -}}
