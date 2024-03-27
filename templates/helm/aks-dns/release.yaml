@@ -16,7 +16,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: lsc-sde
-        namespace: lscsde
+        namespace: {{ .Release.Namespace }}
   interval: 5m0s
   install:
     remediation:
