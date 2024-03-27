@@ -77,6 +77,6 @@ components:
       url: https://github.com/lsc-sde/iac-flux-ohdsi
       branch: main
   secrets_distributor:
-    enabled: ytes
+    state: "enabled"
     namespace: secrets-distributor
     chart_version: ""
