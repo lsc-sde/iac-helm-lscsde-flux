@@ -1,4 +1,4 @@
-{{- if .Values.components.secrets_distributor.enabled }}
+{{- if eq .Values.components.secrets_distributor.state "enabled" }}
 apiVersion: v1
 kind: Namespace
 metadata:

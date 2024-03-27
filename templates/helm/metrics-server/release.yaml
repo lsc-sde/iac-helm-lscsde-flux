@@ -1,4 +1,4 @@
-{{- if .Values.components.metrics_server.enabled -}}
+{{- if eq .Values.components.metrics_server.state "enabled" -}}
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:

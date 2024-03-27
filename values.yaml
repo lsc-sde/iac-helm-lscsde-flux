@@ -1,5 +1,5 @@
 azure:
-  enabled: false
+  state: "disabled"
   client_id: ""
   tenant_id: ""
   keyvault_name: ""
@@ -13,70 +13,70 @@ dns:
 
 components:
   aks_dns:
-    enabled: true
+    state: "enabled"
     chart_version: ""
   configmap_transformer:
-    enabled: false
+    state: "disabled"
     chart_version: ""
   analytics_workspace_management:
-    enabled: true
+    state: "enabled"
     namespace: lscsde-workspace-mgr
     chart_version: "" 
     repository:
       url: https://github.com/lsc-sde/iac-flux-analytics-workspace-management
       branch: main
   cert_manager:
-    enabled: true
+    state: "enabled"
     namespace: cert-manager
     chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-certmanager
       branch: main
   trust_manager:
-    enabled: true
+    state: "enabled"
     namespace: cert-manager
     chart_version: ""
   github_runner:
-    enabled: false
+    state: "disabled"
     namespace: github-runner
     chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-github-action-runners
       branch: main
   ingress_nginx:
-    enabled: true
+    state: "enabled"
     namespace: nginx
     chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-nginx
       branch: main
   jupyter_hub:
-    enabled: true
+    state: "enabled"
     namespace: jupyterhub
     chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-jupyter
       branch: main
   keda:
-    enabled: true
+    state: "enabled"
     namespace: keda
     chart_version: ""
     repository:
       url: https://github.com/lsc-sde/iac-flux-keda
       branch: main
   metrics_server:
-    enabled: true
+    state: "enabled"
     chart_version: ""
     namespace: metrics-server
     repository:
       url: https://kubernetes-sigs.github.io/metrics-server/
   ohdsi:
-    enabled: true
+    state: "enabled"
     namespace: ohdsi
     repository:
       url: https://github.com/lsc-sde/iac-flux-ohdsi
       branch: main
   secrets_distributor:
-    enabled: true
+    enabled: ytes
     namespace: secrets-distributor
     chart_version: ""

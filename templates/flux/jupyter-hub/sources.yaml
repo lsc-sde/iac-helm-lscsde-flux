@@ -1,4 +1,4 @@
-{{- if .Values.components.jupyter_hub.enabled -}}
+{{- if eq .Values.components.jupyter_hub.state "enabled" -}}
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:

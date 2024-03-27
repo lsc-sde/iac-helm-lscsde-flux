@@ -1,4 +1,4 @@
-{{- if .Values.components.github_runner.enabled -}}
+{{- if eq .Values.components.github_runner.state "enabled" -}}
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:

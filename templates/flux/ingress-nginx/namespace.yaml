@@ -1,4 +1,4 @@
-{{- if .Values.components.ingress_nginx.enabled -}}
+{{- if eq .Values.components.ingress_nginx.state "enabled" -}}
 apiVersion: v1
 kind: Namespace
 metadata:

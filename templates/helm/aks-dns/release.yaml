@@ -1,5 +1,5 @@
-{{- if .Values.components.aks_dns.enabled -}}
-{{- if .Values.azure.enabled -}}
+{{- if eq .Values.components.aks_dns.state "enabled" -}}
+{{- if eq .Values.azure.state "enabled" -}}
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:

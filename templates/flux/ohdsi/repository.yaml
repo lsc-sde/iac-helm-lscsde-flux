@@ -1,4 +1,4 @@
-{{- if .Values.components.ohdsi.enabled -}}
+{{- if eq .Values.components.ohdsi.state "enabled" -}}
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:

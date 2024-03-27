@@ -1,4 +1,4 @@
-{{- if .Values.components.analytics_workspace_management.enabled -}}
+{{- if eq .Values.components.analytics_workspace_management.state "enabled" -}}
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
