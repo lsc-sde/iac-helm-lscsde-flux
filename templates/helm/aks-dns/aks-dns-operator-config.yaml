@@ -6,23 +6,23 @@ metadata:
   name: aks-dns-operator-config
 data:
     values.yaml: |
-    env:
-    - name: AZURE_CLIENT_ID
-      value: {{ .Values.azure.client_id }}
+      env:
+      - name: AZURE_CLIENT_ID
+        value: "{{ .Values.azure.client_id }}"
 
-    - name: AZURE_TENANT_ID
-      value: {{ .Values.azure.tenant_id }}
+      - name: AZURE_TENANT_ID
+        value: "{{ .Values.azure.tenant_id }}"
 
-    - name: DNS_PREFIX
-      value: {{ .Values.dns.prefix }}
+      - name: DNS_PREFIX
+        value: "{{ .Values.dns.prefix }}"
 
-    - name: AZ_SUBSCRIPTION_ID
-      value: {{ .Values.azure.dns.subscription_id }}
+      - name: AZ_SUBSCRIPTION_ID
+        value: "{{ .Values.azure.dns.subscription_id }}"
 
-    - name: PRIVATE_DNS_ZONE 
-      value: {{ .Values.azure.dns.private_dnz_zone }}
-      
-    - name: RESOURCE_GROUP_NAME
-      value: {{ .Values.azure.dns.resource_group }}
+      - name: PRIVATE_DNS_ZONE 
+        value: "{{ .Values.azure.dns.private_dnz_zone }}"
+        
+      - name: RESOURCE_GROUP_NAME
+        value: "{{ .Values.azure.dns.resource_group }}"
 {{- end -}}
 {{- end -}}
