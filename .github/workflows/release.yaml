@@ -11,5 +11,7 @@ jobs:
     uses: lsc-sde/lsc-sde/.github/workflows/helm-release.yaml@main
     with:
       directory: iac/helm/lscsde-flux
-      # yamlPath: ohdsi_chart_version
+      yamlFilePath: "core/release.yaml"
+      yamlPathPrefix: ".spec.chart.spec."
+      yamlPath: "version"
     secrets: inherit
