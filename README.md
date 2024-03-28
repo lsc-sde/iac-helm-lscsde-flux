@@ -3,4 +3,4 @@ This helm chart will be used to control the deployments of the various different
 
 
 ## Developer Guide
-This helm release will be called by the [Core LSCSDE Flux configuration](../lscsde/)
+This helm release will be called by the [Core LSCSDE Flux configuration](../../flux/lscsde/)
