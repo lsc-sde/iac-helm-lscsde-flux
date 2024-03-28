@@ -2,6 +2,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  annotations:
+    helm.sh/resource-policy: keep
+    kustomize.toolkit.fluxcd.io/prune: disabled
   labels:
     kubernetes.io/metadata.name: {{ .Values.components.metrics_server.namespace }}
   name: {{ .Values.components.metrics_server.namespace }}
