@@ -6,8 +6,8 @@ metadata:
   annotations:
     lsc-sde.nhs.uk/definitionVersion: "1.0.1"
 spec:
-  targetNamespace: lscsde
-  releaseName: {{ .Values.components.guacamole.namespace }}
+  targetNamespace: {{ .Values.components.guacamole.namespace }}
+  releaseName: guacamole
   chart:
     spec:
       chart: guacamole
