@@ -1,0 +1,30 @@
+{{- if eq .Values.components.guacamole.state "enabled" -}}
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: guacamole
+  annotations:
+    lsc-sde.nhs.uk/definitionVersion: "1.0.1"
+spec:
+  targetNamespace: lscsde
+  releaseName: {{ .Values.components.guacamole.namespace }}
+  chart:
+    spec:
+      chart: guacamole
+      version: {{ .Values.components.guacamole.chart_version }}
+      sourceRef:
+        kind: HelmRepository
+        name: lsc-sde
+        namespace: {{ .Release.Namespace }}
+  interval: 5m0s
+  install:
+    remediation:
+      retries: -1
+    disableWait: true
+    disableWaitForJobs: true
+  upgrade:
+    remediation:
+      retries: -1
+    disableWait: true
+    disableWaitForJobs: true
+{{- end -}}

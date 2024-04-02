@@ -80,3 +80,7 @@ components:
     state: "enabled"
     namespace: secrets-distributor
     chart_version: ""
+  guacamole:
+    state: "disabled"
+    chart_version: ""
+    namespace: guacamole

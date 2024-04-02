@@ -1,0 +1,12 @@
+{{- if eq .Values.components.guacamole.state "enabled" -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+    helm.sh/resource-policy: keep
+  labels:
+    kubernetes.io/metadata.name: {{ .Values.components.guacamole.namespace }}
+    lsc-sde.io/injectJupyterCertificates: "true"
+  name: {{ .Values.components.guacamole.namespace }}
+{{- end -}}
