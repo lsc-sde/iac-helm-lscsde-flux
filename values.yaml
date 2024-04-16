@@ -83,6 +83,16 @@ components:
     repository:
       url: https://github.com/lsc-sde/iac-flux-secrets-distributor
       branch: main
+    config:
+      volumeMounts:
+        - name: secrets-store-inline
+          mountPath: /mnt/secrets
+          readOnly: true
+      volumes:
+        - name: secrets-store-inline
+          hostPath:
+            path: /run/desktop/mnt/host/c/tmp/secrets
+            type: Directory
   guacamole:
     state: "disabled"
     chart_version: ""
