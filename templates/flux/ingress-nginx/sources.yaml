@@ -21,7 +21,7 @@ spec:
     - kind: ConfigMap
       name: cluster-config
     - kind: ConfigMap
-      name: deployment-config
+      name: {{ include "config.name" . }}
     - kind: ConfigMap
       name: environment-configuration
     - kind: ConfigMap

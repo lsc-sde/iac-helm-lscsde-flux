@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "config.name" . }}
+data:
+  ohdsi_branch: {{ .Values.components.ohdsi.repository.branch }}
+  ohdsi_chart_version: {{ .Values.components.ohdsi.chart_version }}
+  secrets_distributor_chart_version: {{ .Values.components.secrets_distributor.chart_version }}
+  secrets_distributor_branch: {{ .Values.components.secrets_distributor.repository.branch }}
+  certmanager_branch: {{ .Values.components.cert_manager.repository.branch }}
+  certmanager_chart_version: {{ .Values.components.cert_manager.chart_version }}
+  trustmanager_chart_version: {{ .Values.components.trust_manager.chart_version }}
+  github_runner_branch: {{ .Values.components.github_runner.repository.branch }}
+  github_runner_chart_version: {{ .Values.components.github_runner.chart_version }}
+  aks_dns_branch: {{ .Values.components.aks_dns.repository.branch }}
+  aks_dns_chart_version: {{ .Values.components.aks_dns.chart_version }}
+  nginx_branch: {{ .Values.components.ingress_nginx.repository.branch }}
+  nginx_chart_version: {{ .Values.components.ingress_nginx.chart_version }}
+  keda_branch: {{ .Values.components.keda.repository.branch }}
+  keda_chart_version: {{ .Values.components.keda.chart_version }}
+  jupyter_branch: {{ .Values.components.jupyter_hub.repository.branch }}
+  jupyter_chart_version: {{ .Values.components.jupyter_hub.chart_version }}
+  analytics_workspace_management_chart_version: {{ .Values.components.analytics_workspace_management.chart_version }}
+  analytics_workspace_management_branch: {{ .Values.components.analytics_workspace_management.repository.branch }}
+  metrics_server_chart_version: {{ .Values.components.metrics_server.chart_version }}
+  guacamole_chart_version: {{ .Values.components.guacamole.chart_version }}

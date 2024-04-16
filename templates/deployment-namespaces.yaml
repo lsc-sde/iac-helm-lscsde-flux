@@ -14,4 +14,4 @@ data:
   jupyter_namespace: {{ .Values.components.jupyter_hub.namespace }}
   analytics_workspace_management_namespace: {{ .Values.components.analytics_workspace_management.namespace }}
   metrics_server_namespace: {{ .Values.components.metrics_server.namespace }}
-  guacamole_chart_version: {{ .Values.components.guacamole.namespace }}
+  guacamole_namespace: {{ .Values.components.guacamole.namespace }}
