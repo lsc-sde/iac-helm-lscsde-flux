@@ -80,6 +80,9 @@ components:
     state: "enabled"
     namespace: secrets-distributor
     chart_version: ""
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-secrets-distributor
+      branch: main
   guacamole:
     state: "disabled"
     chart_version: ""

@@ -1,0 +1,27 @@
+{{- if eq .Values.components.ohdsi.state "enabled" -}}
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: secrets-distributor
+spec:
+  force: false
+  interval: 1m0s
+  path: ./
+  prune: true
+  retryInterval: 1m0s
+  serviceAccountName: flux-applier
+  sourceRef:
+    kind: GitRepository
+    name: secrets-distributor
+    namespace: {{ .Release.Namespace }}
+  timeout: 1m0s
+  wait: false
+  postBuild:
+    substituteFrom:
+    - kind: ConfigMap
+      name: cluster-config
+    - kind: ConfigMap
+      name: deployment-config
+    - kind: ConfigMap
+      name: environment-configuration
+{{- end -}}
