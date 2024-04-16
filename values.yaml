@@ -11,19 +11,20 @@ azure:
 dns:
   prefix: ""
 
+naming:
+  suffix: ""
+
 components:
   aks_dns:
     state: "enabled"
     chart_version: ""
     namespace: "aks-dns-operator"
-    repository:
-      url: https://github.com/lsc-sde/iac-flux-aks-dns-operator
-      branch: main
   analytics_workspace_management:
     state: "enabled"
     namespace: lscsde-workspace-mgr
     chart_version: "" 
     repository:
+      name: analytics-workspace-management
       url: https://github.com/lsc-sde/iac-flux-analytics-workspace-management
       branch: main
   cert_manager:
@@ -31,6 +32,7 @@ components:
     namespace: cert-manager
     chart_version: ""
     repository:
+      name: certmanager
       url: https://github.com/lsc-sde/iac-flux-certmanager
       branch: main
   trust_manager:
@@ -42,6 +44,7 @@ components:
     namespace: github-runner
     chart_version: ""
     repository:
+      name: github-runner
       url: https://github.com/lsc-sde/iac-flux-github-action-runners
       branch: main
   ingress_nginx:
@@ -49,6 +52,7 @@ components:
     namespace: nginx
     chart_version: ""
     repository:
+      name: nginx
       url: https://github.com/lsc-sde/iac-flux-nginx
       branch: main
   jupyter_hub:
@@ -56,6 +60,7 @@ components:
     namespace: jupyterhub
     chart_version: ""
     repository:
+      name: jupyter
       url: https://github.com/lsc-sde/iac-flux-jupyter
       branch: main
   keda:
@@ -63,18 +68,19 @@ components:
     namespace: keda
     chart_version: ""
     repository:
+      name: keda
       url: https://github.com/lsc-sde/iac-flux-keda
       branch: main
   metrics_server:
     state: "enabled"
     chart_version: ""
+    chart_url: https://kubernetes-sigs.github.io/metrics-server/ 
     namespace: metrics-server
-    repository:
-      url: https://kubernetes-sigs.github.io/metrics-server/
   ohdsi:
     state: "enabled"
     namespace: ohdsi
     repository:
+      name: ohdsi
       url: https://github.com/lsc-sde/iac-flux-ohdsi
       branch: main
   secrets_distributor:
@@ -82,6 +88,7 @@ components:
     namespace: secrets-distributor
     chart_version: ""
     repository:
+      name: secrets-distributor
       url: https://github.com/lsc-sde/iac-flux-secrets-distributor
       branch: main
     config:

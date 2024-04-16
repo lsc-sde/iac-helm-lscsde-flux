@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: certmanager-post-helm
+  name: {{ cat "certmanager-post-helm" .Values.naming.suffix }}
 spec:
   dependsOn:
   - name: certmanager
@@ -14,7 +14,7 @@ spec:
   serviceAccountName: flux-applier
   sourceRef:
     kind: GitRepository
-    name: certmanager
+    name: {{ cat "certmanager" .Values.naming.suffix }}
     namespace: {{ .Release.Namespace }}
   timeout: 1m0s
   wait: false

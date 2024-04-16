@@ -12,7 +12,6 @@ data:
   trustmanager_chart_version: {{ .Values.components.trust_manager.chart_version }}
   github_runner_branch: {{ .Values.components.github_runner.repository.branch }}
   github_runner_chart_version: {{ .Values.components.github_runner.chart_version }}
-  aks_dns_branch: {{ .Values.components.aks_dns.repository.branch }}
   aks_dns_chart_version: {{ .Values.components.aks_dns.chart_version }}
   nginx_branch: {{ .Values.components.ingress_nginx.repository.branch }}
   nginx_chart_version: {{ .Values.components.ingress_nginx.chart_version }}

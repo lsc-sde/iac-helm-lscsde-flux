@@ -6,6 +6,6 @@ metadata:
     helm.sh/resource-policy: keep
     kustomize.toolkit.fluxcd.io/prune: disabled
   labels:
-    kubernetes.io/metadata.name: {{ .Values.components.metrics_server.namespace }}
-  name: {{ .Values.components.metrics_server.namespace }}
+    kubernetes.io/metadata.name: {{ cat .Values.components.metrics_server.namespace .Values.naming.suffix }}
+  name: {{ cat .Values.components.metrics_server.namespace .Values.naming.suffix }}
 {{- end -}}

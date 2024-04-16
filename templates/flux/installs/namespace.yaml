@@ -1,0 +1,15 @@
+{{ range .Values.components }}
+{{ if hasKey . "repository "}}
+{{- if eq .state "enabled" -}}
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+    helm.sh/resource-policy: keep
+  labels:
+    kubernetes.io/metadata.name: {{ cat .namespace $.Values.naming.suffix }}
+  name: {{ cat .namespace $.Values.naming.suffix }}
+{{- end -}}
+{{ end }}
+{{ end }}

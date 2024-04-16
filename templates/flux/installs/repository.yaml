@@ -1,0 +1,16 @@
+{{ range .Values.components }}
+{{ if hasKey . "repository "}}
+{{- if eq .state "enabled" -}}
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: {{ cat .repository.name $.Values.naming.suffix }}
+spec:
+  interval: 1m0s
+  ref:
+    branch: {{ .repository.branch }}
+  timeout: 60s
+  url: {{ .repository.url }}
+{{- end -}}
+{{ end }}
+{{ end }}

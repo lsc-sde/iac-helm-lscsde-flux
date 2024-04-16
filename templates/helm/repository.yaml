@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: lsc-sde
+  name: {{ cat "lsc-sde" .Values.naming.suffix }}
 spec:
   interval: 5m
   url: https://lsc-sde.github.io/iac-helm-repository/

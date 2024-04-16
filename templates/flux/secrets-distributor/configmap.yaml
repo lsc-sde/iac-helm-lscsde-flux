@@ -4,4 +4,4 @@ data:
 kind: ConfigMap
 metadata:
   name: secret-distributor-config
-  namespace: {{ .Values.components.secrets_distributor.namespace }}
+  namespace: {{ cat .Values.components.secrets_distributor.namespace .Values.naming.suffix }}

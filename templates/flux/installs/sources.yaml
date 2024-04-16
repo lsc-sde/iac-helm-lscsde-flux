@@ -1,11 +1,11 @@
-{{- if eq .Values.components.github_runner.state "enabled" -}}
+{{ range .Values.components }}
+{{ if hasKey . "repository "}}
+{{- if eq .state "enabled" -}}
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: github-runner
+  name: {{ cat "lscsde-workspace-mgr"  .Values.naming.suffix  }}
 spec:
-  dependsOn:
-  - name: keda
   force: false
   interval: 1m0s
   path: ./
@@ -14,8 +14,8 @@ spec:
   serviceAccountName: flux-applier
   sourceRef:
     kind: GitRepository
-    name: github-runner
-    namespace: {{ .Release.Namespace }}
+    name: {{ cat .repository.name $.Values.naming.suffix }}
+    namespace: {{ $.Release.Namespace }}
   timeout: 1m0s
   wait: false
   postBuild:
@@ -23,9 +23,11 @@ spec:
     - kind: ConfigMap
       name: cluster-config
     - kind: ConfigMap
-      name: {{ include "config.name" . }}
+      name: {{ include "config.name" $ }}
     - kind: ConfigMap
       name: environment-configuration
     - kind: ConfigMap
       name: deployment-namespaces
-  {{- end -}}
+{{- end -}}
+{{ end }}
+{{ end }}
