@@ -26,4 +26,6 @@ spec:
       name: deployment-config
     - kind: ConfigMap
       name: environment-configuration
+    - kind: ConfigMap
+      name: deployment-namespaces
   {{- end -}}

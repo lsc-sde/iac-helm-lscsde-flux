@@ -15,9 +15,10 @@ components:
   aks_dns:
     state: "enabled"
     chart_version: ""
-  configmap_transformer:
-    state: "disabled"
-    chart_version: ""
+    namespace: "aks-dns-operator"
+    repository:
+      url: https://github.com/lsc-sde/iac-flux-aks-dns-operator
+      branch: main
   analytics_workspace_management:
     state: "enabled"
     namespace: lscsde-workspace-mgr
