@@ -14,4 +14,5 @@ jobs:
       yamlFilePath: "core/release.yaml"
       yamlPathPrefix: ".spec.chart.spec."
       yamlPath: "version"
+      yamlPathSuffix: ""
     secrets: inherit
