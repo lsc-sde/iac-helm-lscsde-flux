@@ -1,7 +1,8 @@
 {{- if eq .Values.components.secrets_distributor.state "enabled" -}}
 apiVersion: v1
 data:
-  values.yaml: {{ toYaml .Values.components.secrets_distributor.config | nindent 4 }}
+  values.yaml: |-
+    {{- toYaml .Values.components.secrets_distributor.config | nindent 4 }}
 kind: ConfigMap
 metadata:
   name: secret-distributor-config
