@@ -11,6 +11,7 @@ spec:
     branch: {{ .repository.branch }}
   timeout: 60s
   url: {{ .repository.url }}
+---
 {{- end -}}
 {{ end }}
 {{ end }}
