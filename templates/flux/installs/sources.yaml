@@ -25,9 +25,9 @@ spec:
     - kind: ConfigMap
       name: {{ include "config.name" $ }}
     - kind: ConfigMap
-      name: {{ printf "environment-configuration%s" .Values.naming.suffix }}
+      name: {{ printf "environment-configuration%s" $.Values.naming.suffix }}
     - kind: ConfigMap
-      name: {{ printf "deployment-namespaces%s" .Values.naming.suffix }}
+      name: {{ printf "deployment-namespaces%s" $.Values.naming.suffix }}
 ---
 {{- end -}}
 {{ end }}
