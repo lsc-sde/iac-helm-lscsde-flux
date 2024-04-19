@@ -91,7 +91,7 @@ components:
       name: secrets-distributor
       url: https://github.com/lsc-sde/iac-flux-secrets-distributor
       branch: main
-    config:
+    config: |-
       volumeMounts:
         - name: secrets-store-inline
           mountPath: /mnt/secrets

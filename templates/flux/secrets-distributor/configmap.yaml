@@ -2,7 +2,7 @@
 apiVersion: v1
 data:
   values.yaml: |-
-    {{- toYaml .Values.components.secrets_distributor.config | nindent 4 }}
+    {{- toYaml (fromYaml .Values.components.secrets_distributor.config ) | nindent 4 }}
 kind: ConfigMap
 metadata:
   name: secret-distributor-config
