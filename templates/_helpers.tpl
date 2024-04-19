@@ -3,5 +3,5 @@
 {{- end }}
 
 {{- define "config.name" -}}
-{{- printf "%s-config" .Release.Name }}
+{{- printf "%s-config-%s" .Release.Name .Values.naming.suffix }}
 {{- end }}
