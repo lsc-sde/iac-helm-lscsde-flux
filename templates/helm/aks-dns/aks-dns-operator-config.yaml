@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ cat "aks-dns-operator-config" .Values.naming.suffix }}
+  name: {{ printf "aks-dns-operator-config%s" .Values.naming.suffix }}
 data:
     values.yaml: |
       env:

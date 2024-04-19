@@ -4,7 +4,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: {{ cat .repository.name $.Values.naming.suffix }}
+  name: {{ printf "%s%s" .repository.name $.Values.naming.suffix }}
 spec:
   interval: 1m0s
   ref:

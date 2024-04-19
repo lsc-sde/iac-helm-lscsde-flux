@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: metrics-server
-  namespace: {{ cat .Values.components.metrics_server.namespace .Values.naming.suffix }}
+  namespace: {{ printf "%s%s" .Values.components.metrics_server.namespace .Values.naming.suffix }}
 spec:
   interval: 5m
   url: {{ .Values.components.metrics_server.chart_url }}

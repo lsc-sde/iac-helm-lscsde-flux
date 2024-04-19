@@ -4,4 +4,4 @@ data:
 kind: ConfigMap
 metadata:
   name: secret-distributor-config
-  namespace: {{ cat .Values.components.secrets_distributor.namespace .Values.naming.suffix }}
+  namespace: {{ printf "%s%s" .Values.components.secrets_distributor.namespace .Values.naming.suffix }}

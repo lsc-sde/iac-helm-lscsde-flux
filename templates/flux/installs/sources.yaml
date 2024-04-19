@@ -4,7 +4,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: {{ cat "lscsde-workspace-mgr"  .Values.naming.suffix  }}
+  name: {{ printf "%s%s" "lscsde-workspace-mgr"  .Values.naming.suffix  }}
 spec:
   force: false
   interval: 1m0s
@@ -14,7 +14,7 @@ spec:
   serviceAccountName: flux-applier
   sourceRef:
     kind: GitRepository
-    name: {{ cat .repository.name $.Values.naming.suffix }}
+    name: {{ printf "%s%s" .repository.name $.Values.naming.suffix }}
     namespace: {{ $.Release.Namespace }}
   timeout: 1m0s
   wait: false
@@ -25,9 +25,9 @@ spec:
     - kind: ConfigMap
       name: {{ include "config.name" $ }}
     - kind: ConfigMap
-      name: {{ cat "environment-configuration" .Values.naming.suffix }}
+      name: {{ printf "environment-configuration%s" .Values.naming.suffix }}
     - kind: ConfigMap
-      name: {{ cat "deployment-namespaces" .Values.naming.suffix }}
+      name: {{ printf "deployment-namespaces%s" .Values.naming.suffix }}
 {{- end -}}
 {{ end }}
 {{ end }}

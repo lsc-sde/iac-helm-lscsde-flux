@@ -3,19 +3,19 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: {{ cat "aks-dns-operator" .Values.naming.suffix }}
+  name: {{ printf "aks-dns-operator%s" .Values.naming.suffix }}
   annotations:
     lsc-sde.nhs.uk/definitionVersion: "1.0.1"
 spec:
   targetNamespace: lscsde
-  releaseName: {{ cat "aks-dns-operator" .Values.naming.suffix }}
+  releaseName: {{ printf "aks-dns-operator%s" .Values.naming.suffix }}
   chart:
     spec:
       chart: aks-dns-operator
       version: {{ .Values.components.aks_dns.chart_version }}
       sourceRef:
         kind: HelmRepository
-        name: {{ cat "lsc-sde" .Values.naming.suffix }}
+        name: {{ printf "lsc-sde%s" .Values.naming.suffix }}
         namespace: {{ .Release.Namespace }}
   interval: 5m0s
   install:
@@ -30,6 +30,6 @@ spec:
     disableWaitForJobs: true
   valuesFrom:
   - kind: ConfigMap
-    name: {{ cat "aks-dns-operator-config" .Values.naming.suffix }}
+    name: {{ printf "aks-dns-operator-config%s" .Values.naming.suffix }}
 {{- end -}}
 {{- end -}}
