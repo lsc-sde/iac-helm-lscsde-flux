@@ -4,7 +4,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: {{ printf "%s%s" .repository.name  $.Values.naming.suffix  }}
+  name: "{{ printf "%s%s" .repository.name  $.Values.naming.suffix  }}"
 spec:
   force: false
   interval: 1m0s
@@ -14,8 +14,8 @@ spec:
   serviceAccountName: flux-applier
   sourceRef:
     kind: GitRepository
-    name: {{ printf "%s%s" .repository.name $.Values.naming.suffix }}
-    namespace: {{ $.Release.Namespace }}
+    name: "{{ printf "%s%s" .repository.name $.Values.naming.suffix }}"
+    namespace: "{{ $.Release.Namespace }}"
   timeout: 1m0s
   wait: false
   postBuild:
@@ -25,9 +25,9 @@ spec:
     - kind: ConfigMap
       name: {{ include "config.name" $ }}
     - kind: ConfigMap
-      name: {{ printf "environment-configuration%s" $.Values.naming.suffix }}
+      name: "{{ printf "environment-configuration%s" $.Values.naming.suffix }}"
     - kind: ConfigMap
-      name: {{ printf "deployment-namespaces%s" $.Values.naming.suffix }}
+      name: "{{ printf "deployment-namespaces%s" $.Values.naming.suffix }}"
 ---
 {{- end -}}
 {{ end }}
