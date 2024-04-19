@@ -25,5 +25,5 @@ spec:
     - kind: ConfigMap
       name: deployment-config
     - kind: ConfigMap
-      name: environment-configuration
+      name: {{ cat "environment-configuration" .Values.naming.suffix }}
 {{- end -}}
