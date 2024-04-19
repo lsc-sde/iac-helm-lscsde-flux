@@ -1,5 +1,6 @@
 {{ range .Values.components }}
 {{ if hasKey . "repository"}}
+{{ if hasKey .repository "name" }}
 {{- if eq .state "enabled" -}}
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
@@ -13,5 +14,6 @@ spec:
   url: "{{ .repository.url }}"
 ---
 {{- end -}}
+{{ end }}
 {{ end }}
 {{ end }}
