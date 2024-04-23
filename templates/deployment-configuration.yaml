@@ -4,6 +4,7 @@ metadata:
   name: {{ include "config.name" . }}
 data:
   environment_dns_prefix: {{ .Values.dns.prefix }}
+  environment_dns_suffix: {{ .Values.naming.suffix }}
   ohdsi_branch: "{{ .Values.components.ohdsi.repository.branch }}"
   ohdsi_chart_version: "{{ .Values.components.ohdsi.chart_version }}"
   secrets_distributor_chart_version: "{{ .Values.components.secrets_distributor.chart_version }}"
