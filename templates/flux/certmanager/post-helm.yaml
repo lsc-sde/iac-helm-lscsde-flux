@@ -23,7 +23,7 @@ spec:
     - kind: ConfigMap
       name: cluster-config
     - kind: ConfigMap
-      name: deployment-config
+      name: {{ include "config.name" . }}
     - kind: ConfigMap
       name: {{ printf "environment-configuration%s" .Values.naming.suffix }}
 {{- end -}}
