@@ -1,1279 +1,510 @@
 {
-    "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "$id": "http://example.com/example.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "default": {},
-    "title": "Root Schema",
-    "required": [
-        "azure",
-        "dns",
-        "naming",
-        "components"
-    ],
     "properties": {
-        "azure": {
+      "azure": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string"
+          },
+          "client_id": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "keyvault_name": {
+            "type": "string"
+          },
+          "dns": {
             "type": "object",
-            "default": {},
-            "title": "The azure Schema",
-            "required": [
-                "state",
-                "client_id",
-                "tenant_id",
-                "keyvault_name",
-                "dns"
-            ],
             "properties": {
-                "state": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The state Schema",
-                    "examples": [
-                        "disabled"
-                    ]
-                },
-                "client_id": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The client_id Schema",
-                    "examples": [
-                        ""
-                    ]
-                },
-                "tenant_id": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The tenant_id Schema",
-                    "examples": [
-                        ""
-                    ]
-                },
-                "keyvault_name": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The keyvault_name Schema",
-                    "examples": [
-                        ""
-                    ]
-                },
-                "dns": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The dns Schema",
-                    "required": [
-                        "subscription_id",
-                        "private_dnz_zone",
-                        "resource_group"
-                    ],
-                    "properties": {
-                        "subscription_id": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The subscription_id Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "private_dnz_zone": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The private_dnz_zone Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "resource_group": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The resource_group Schema",
-                            "examples": [
-                                ""
-                            ]
-                        }
-                    },
-                    "examples": [{
-                        "subscription_id": "",
-                        "private_dnz_zone": "",
-                        "resource_group": ""
-                    }]
-                }
+              "subscription_id": {
+                "type": "string"
+              },
+              "private_dnz_zone": {
+                "type": "string"
+              },
+              "resource_group": {
+                "type": "string"
+              }
             },
-            "examples": [{
-                "state": "disabled",
-                "client_id": "",
-                "tenant_id": "",
-                "keyvault_name": "",
-                "dns": {
-                    "subscription_id": "",
-                    "private_dnz_zone": "",
-                    "resource_group": ""
-                }
-            }]
+            "required": [
+              "subscription_id",
+              "private_dnz_zone",
+              "resource_group"
+            ]
+          }
         },
-        "dns": {
-            "type": "object",
-            "default": {},
-            "title": "The dns Schema",
-            "required": [
-                "prefix"
-            ],
-            "properties": {
-                "prefix": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The prefix Schema",
-                    "examples": [
-                        ""
-                    ]
-                }
-            },
-            "examples": [{
-                "prefix": ""
-            }]
+        "required": [
+          "state",
+          "client_id",
+          "tenant_id",
+          "keyvault_name",
+          "dns"
+        ]
+      },
+      "dns": {
+        "type": "object",
+        "properties": {
+          "prefix": {
+            "type": "string"
+          }
         },
-        "naming": {
-            "type": "object",
-            "default": {},
-            "title": "The naming Schema",
-            "required": [
-                "suffix"
-            ],
-            "properties": {
-                "suffix": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The suffix Schema",
-                    "examples": [
-                        ""
-                    ]
-                }
-            },
-            "examples": [{
-                "suffix": ""
-            }]
+        "required": [
+          "prefix"
+        ]
+      },
+      "naming": {
+        "type": "object",
+        "properties": {
+          "suffix": {
+            "type": "string"
+          }
         },
-        "components": {
+        "required": [
+          "suffix"
+        ]
+      },
+      "components": {
+        "type": "object",
+        "properties": {
+          "aks_dns": {
             "type": "object",
-            "default": {},
-            "title": "The components Schema",
-            "required": [
-                "aks_dns",
-                "analytics_workspace_management",
-                "cert_manager",
-                "trust_manager",
-                "github_runner",
-                "ingress_nginx",
-                "jupyter_hub",
-                "keda",
-                "metrics_server",
-                "ohdsi",
-                "secrets_distributor",
-                "guacamole"
-            ],
             "properties": {
-                "aks_dns": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The aks_dns Schema",
-                    "required": [
-                        "state",
-                        "chart_version",
-                        "namespace"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "aks-dns-operator"
-                            ]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "chart_version": "",
-                        "namespace": "aks-dns-operator"
-                    }]
-                },
-                "analytics_workspace_management": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The analytics_workspace_management Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "lscsde-workspace-mgr"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "analytics-workspace-management"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-analytics-workspace-management"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "analytics-workspace-management",
-                                "url": "https://github.com/lsc-sde/iac-flux-analytics-workspace-management",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "lscsde-workspace-mgr",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "analytics-workspace-management",
-                            "url": "https://github.com/lsc-sde/iac-flux-analytics-workspace-management",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "cert_manager": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The cert_manager Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "cert-manager"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "certmanager"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-certmanager"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "certmanager",
-                                "url": "https://github.com/lsc-sde/iac-flux-certmanager",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "cert-manager",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "certmanager",
-                            "url": "https://github.com/lsc-sde/iac-flux-certmanager",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "trust_manager": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The trust_manager Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "cert-manager"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "cert-manager",
-                        "chart_version": ""
-                    }]
-                },
-                "github_runner": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The github_runner Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "disabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "github-runner"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "github-runner"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-github-action-runners"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "github-runner",
-                                "url": "https://github.com/lsc-sde/iac-flux-github-action-runners",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "disabled",
-                        "namespace": "github-runner",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "github-runner",
-                            "url": "https://github.com/lsc-sde/iac-flux-github-action-runners",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "ingress_nginx": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The ingress_nginx Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "nginx"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "nginx"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-nginx"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "nginx",
-                                "url": "https://github.com/lsc-sde/iac-flux-nginx",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "nginx",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "nginx",
-                            "url": "https://github.com/lsc-sde/iac-flux-nginx",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "jupyter_hub": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The jupyter_hub Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "jupyterhub"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "jupyter"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-jupyter"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "jupyter",
-                                "url": "https://github.com/lsc-sde/iac-flux-jupyter",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "jupyterhub",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "jupyter",
-                            "url": "https://github.com/lsc-sde/iac-flux-jupyter",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "keda": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The keda Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "keda"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "keda"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-keda"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "keda",
-                                "url": "https://github.com/lsc-sde/iac-flux-keda",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "keda",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "keda",
-                            "url": "https://github.com/lsc-sde/iac-flux-keda",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "metrics_server": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The metrics_server Schema",
-                    "required": [
-                        "state",
-                        "chart_version",
-                        "chart_url",
-                        "namespace"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "chart_url": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_url Schema",
-                            "examples": [
-                                "https://kubernetes-sigs.github.io/metrics-server/"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "metrics-server"
-                            ]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "chart_version": "",
-                        "chart_url": "https://kubernetes-sigs.github.io/metrics-server/",
-                        "namespace": "metrics-server"
-                    }]
-                },
-                "ohdsi": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The ohdsi Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "repository"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "ohdsi"
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "ohdsi"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-ohdsi"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "ohdsi",
-                                "url": "https://github.com/lsc-sde/iac-flux-ohdsi",
-                                "branch": "main"
-                            }]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "ohdsi",
-                        "repository": {
-                            "name": "ohdsi",
-                            "url": "https://github.com/lsc-sde/iac-flux-ohdsi",
-                            "branch": "main"
-                        }
-                    }]
-                },
-                "secrets_distributor": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The secrets_distributor Schema",
-                    "required": [
-                        "state",
-                        "namespace",
-                        "chart_version",
-                        "repository",
-                        "config"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "enabled"
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "secrets-distributor"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "repository": {
-                            "type": "object",
-                            "default": {},
-                            "title": "The repository Schema",
-                            "required": [
-                                "name",
-                                "url",
-                                "branch"
-                            ],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The name Schema",
-                                    "examples": [
-                                        "secrets-distributor"
-                                    ]
-                                },
-                                "url": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The url Schema",
-                                    "examples": [
-                                        "https://github.com/lsc-sde/iac-flux-secrets-distributor"
-                                    ]
-                                },
-                                "branch": {
-                                    "type": "string",
-                                    "default": "",
-                                    "title": "The branch Schema",
-                                    "examples": [
-                                        "main"
-                                    ]
-                                }
-                            },
-                            "examples": [{
-                                "name": "secrets-distributor",
-                                "url": "https://github.com/lsc-sde/iac-flux-secrets-distributor",
-                                "branch": "main"
-                            }]
-                        },
-                        "config": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The config Schema",
-                            "examples": [
-                                "volumeMounts:\n  - name: secrets-store-inline\n    mountPath: /mnt/secrets\n    readOnly: true\nvolumes:\n  - name: secrets-store-inline\n    hostPath:\n      path: /run/desktop/mnt/host/c/tmp/secrets\n      type: Directory"
-                            ]
-                        }
-                    },
-                    "examples": [{
-                        "state": "enabled",
-                        "namespace": "secrets-distributor",
-                        "chart_version": "",
-                        "repository": {
-                            "name": "secrets-distributor",
-                            "url": "https://github.com/lsc-sde/iac-flux-secrets-distributor",
-                            "branch": "main"
-                        },
-                        "config": "volumeMounts:\n  - name: secrets-store-inline\n    mountPath: /mnt/secrets\n    readOnly: true\nvolumes:\n  - name: secrets-store-inline\n    hostPath:\n      path: /run/desktop/mnt/host/c/tmp/secrets\n      type: Directory"
-                    }]
-                },
-                "guacamole": {
-                    "type": "object",
-                    "default": {},
-                    "title": "The guacamole Schema",
-                    "required": [
-                        "state",
-                        "chart_version",
-                        "namespace"
-                    ],
-                    "properties": {
-                        "state": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The state Schema",
-                            "examples": [
-                                "disabled"
-                            ]
-                        },
-                        "chart_version": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The chart_version Schema",
-                            "examples": [
-                                ""
-                            ]
-                        },
-                        "namespace": {
-                            "type": "string",
-                            "default": "",
-                            "title": "The namespace Schema",
-                            "examples": [
-                                "guacamole"
-                            ]
-                        }
-                    },
-                    "examples": [{
-                        "state": "disabled",
-                        "chart_version": "",
-                        "namespace": "guacamole"
-                    }]
-                }
+              "state": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              }
             },
-            "examples": [{
-                "aks_dns": {
-                    "state": "enabled",
-                    "chart_version": "",
-                    "namespace": "aks-dns-operator"
+            "required": [
+              "state",
+              "chart_version",
+              "namespace"
+            ]
+          },
+          "analytics_workspace_management": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "analytics_workspace_management": {
-                    "state": "enabled",
-                    "namespace": "lscsde-workspace-mgr",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "analytics-workspace-management",
-                        "url": "https://github.com/lsc-sde/iac-flux-analytics-workspace-management",
-                        "branch": "main"
-                    }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository"
+            ]
+          },
+          "cert_manager": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "cert_manager": {
-                    "state": "enabled",
-                    "namespace": "cert-manager",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "certmanager",
-                        "url": "https://github.com/lsc-sde/iac-flux-certmanager",
-                        "branch": "main"
-                    }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository"
+            ]
+          },
+          "trust_manager": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version"
+            ]
+          },
+          "github_runner": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "trust_manager": {
-                    "state": "enabled",
-                    "namespace": "cert-manager",
-                    "chart_version": ""
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository"
+            ]
+          },
+          "ingress_nginx": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "github_runner": {
-                    "state": "disabled",
-                    "namespace": "github-runner",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "github-runner",
-                        "url": "https://github.com/lsc-sde/iac-flux-github-action-runners",
-                        "branch": "main"
-                    }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository"
+            ]
+          },
+          "jupyter_hub": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "ingress_nginx": {
-                    "state": "enabled",
-                    "namespace": "nginx",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "nginx",
-                        "url": "https://github.com/lsc-sde/iac-flux-nginx",
-                        "branch": "main"
-                    }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository"
+            ]
+          },
+          "keda": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "jupyter_hub": {
-                    "state": "enabled",
-                    "namespace": "jupyterhub",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "jupyter",
-                        "url": "https://github.com/lsc-sde/iac-flux-jupyter",
-                        "branch": "main"
-                    }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository"
+            ]
+          },
+          "metrics_server": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "chart_url": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "state",
+              "chart_version",
+              "chart_url",
+              "namespace"
+            ]
+          },
+          "ohdsi": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "keda": {
-                    "state": "enabled",
-                    "namespace": "keda",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "keda",
-                        "url": "https://github.com/lsc-sde/iac-flux-keda",
-                        "branch": "main"
-                    }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "repository"
+            ]
+          },
+          "secrets_distributor": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "metrics_server": {
-                    "state": "enabled",
-                    "chart_version": "",
-                    "chart_url": "https://kubernetes-sigs.github.io/metrics-server/",
-                    "namespace": "metrics-server"
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              },
+              "config": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository",
+              "config"
+            ]
+          },
+          "guacamole": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
                 },
-                "ohdsi": {
-                    "state": "enabled",
-                    "namespace": "ohdsi",
-                    "repository": {
-                        "name": "ohdsi",
-                        "url": "https://github.com/lsc-sde/iac-flux-ohdsi",
-                        "branch": "main"
-                    }
-                },
-                "secrets_distributor": {
-                    "state": "enabled",
-                    "namespace": "secrets-distributor",
-                    "chart_version": "",
-                    "repository": {
-                        "name": "secrets-distributor",
-                        "url": "https://github.com/lsc-sde/iac-flux-secrets-distributor",
-                        "branch": "main"
-                    },
-                    "config": "volumeMounts:\n  - name: secrets-store-inline\n    mountPath: /mnt/secrets\n    readOnly: true\nvolumes:\n  - name: secrets-store-inline\n    hostPath:\n      path: /run/desktop/mnt/host/c/tmp/secrets\n      type: Directory"
-                },
-                "guacamole": {
-                    "state": "disabled",
-                    "chart_version": "",
-                    "namespace": "guacamole"
-                }
-            }]
-        }
+                "required": [
+                  "name",
+                  "url",
+                  "branch"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "chart_version",
+              "namespace",
+              "repository"
+            ]
+          }
+        },
+        "required": [
+          "aks_dns",
+          "analytics_workspace_management",
+          "cert_manager",
+          "trust_manager",
+          "github_runner",
+          "ingress_nginx",
+          "jupyter_hub",
+          "keda",
+          "metrics_server",
+          "ohdsi",
+          "secrets_distributor",
+          "guacamole"
+        ]
+      }
     },
-    "examples": [{
-        "azure": {
-            "state": "disabled",
-            "client_id": "",
-            "tenant_id": "",
-            "keyvault_name": "",
-            "dns": {
-                "subscription_id": "",
-                "private_dnz_zone": "",
-                "resource_group": ""
-            }
-        },
-        "dns": {
-            "prefix": ""
-        },
-        "naming": {
-            "suffix": ""
-        },
-        "components": {
-            "aks_dns": {
-                "state": "enabled",
-                "chart_version": "",
-                "namespace": "aks-dns-operator"
-            },
-            "analytics_workspace_management": {
-                "state": "enabled",
-                "namespace": "lscsde-workspace-mgr",
-                "chart_version": "",
-                "repository": {
-                    "name": "analytics-workspace-management",
-                    "url": "https://github.com/lsc-sde/iac-flux-analytics-workspace-management",
-                    "branch": "main"
-                }
-            },
-            "cert_manager": {
-                "state": "enabled",
-                "namespace": "cert-manager",
-                "chart_version": "",
-                "repository": {
-                    "name": "certmanager",
-                    "url": "https://github.com/lsc-sde/iac-flux-certmanager",
-                    "branch": "main"
-                }
-            },
-            "trust_manager": {
-                "state": "enabled",
-                "namespace": "cert-manager",
-                "chart_version": ""
-            },
-            "github_runner": {
-                "state": "disabled",
-                "namespace": "github-runner",
-                "chart_version": "",
-                "repository": {
-                    "name": "github-runner",
-                    "url": "https://github.com/lsc-sde/iac-flux-github-action-runners",
-                    "branch": "main"
-                }
-            },
-            "ingress_nginx": {
-                "state": "enabled",
-                "namespace": "nginx",
-                "chart_version": "",
-                "repository": {
-                    "name": "nginx",
-                    "url": "https://github.com/lsc-sde/iac-flux-nginx",
-                    "branch": "main"
-                }
-            },
-            "jupyter_hub": {
-                "state": "enabled",
-                "namespace": "jupyterhub",
-                "chart_version": "",
-                "repository": {
-                    "name": "jupyter",
-                    "url": "https://github.com/lsc-sde/iac-flux-jupyter",
-                    "branch": "main"
-                }
-            },
-            "keda": {
-                "state": "enabled",
-                "namespace": "keda",
-                "chart_version": "",
-                "repository": {
-                    "name": "keda",
-                    "url": "https://github.com/lsc-sde/iac-flux-keda",
-                    "branch": "main"
-                }
-            },
-            "metrics_server": {
-                "state": "enabled",
-                "chart_version": "",
-                "chart_url": "https://kubernetes-sigs.github.io/metrics-server/",
-                "namespace": "metrics-server"
-            },
-            "ohdsi": {
-                "state": "enabled",
-                "namespace": "ohdsi",
-                "repository": {
-                    "name": "ohdsi",
-                    "url": "https://github.com/lsc-sde/iac-flux-ohdsi",
-                    "branch": "main"
-                }
-            },
-            "secrets_distributor": {
-                "state": "enabled",
-                "namespace": "secrets-distributor",
-                "chart_version": "",
-                "repository": {
-                    "name": "secrets-distributor",
-                    "url": "https://github.com/lsc-sde/iac-flux-secrets-distributor",
-                    "branch": "main"
-                },
-                "config": "volumeMounts:\n  - name: secrets-store-inline\n    mountPath: /mnt/secrets\n    readOnly: true\nvolumes:\n  - name: secrets-store-inline\n    hostPath:\n      path: /run/desktop/mnt/host/c/tmp/secrets\n      type: Directory"
-            },
-            "guacamole": {
-                "state": "disabled",
-                "chart_version": "",
-                "namespace": "guacamole"
-            }
-        }
-    }]
-}
+    "required": [
+      "azure",
+      "dns",
+      "naming",
+      "components"
+    ]
+  }
+  
+  

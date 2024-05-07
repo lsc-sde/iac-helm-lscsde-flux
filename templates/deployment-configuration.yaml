@@ -25,3 +25,4 @@ data:
   analytics_workspace_management_branch: "{{ .Values.components.analytics_workspace_management.repository.branch }}"
   metrics_server_chart_version: "{{ .Values.components.metrics_server.chart_version }}"
   guacamole_chart_version: "{{ .Values.components.guacamole.chart_version }}"
+  guacamole_branch: "{{ .Values.components.guacamole.repository.branch }}"

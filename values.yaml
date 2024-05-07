@@ -105,3 +105,7 @@ components:
     state: "disabled"
     chart_version: ""
     namespace: guacamole
+    repository:
+      name: guacamole
+      url: https://github.com/lsc-sde/iac-flux-guacamole
+      branch: main
