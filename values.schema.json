@@ -443,6 +443,53 @@
               "config"
             ]
           },
+          "workflow_definitions": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "chart_version": {
+                "type": "string"
+              },
+              "repository": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }, 
+                  "path" : {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "url",
+                  "branch",
+                  "path"
+                ]
+              },
+              "config": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "state",
+              "namespace",
+              "chart_version",
+              "repository",
+              "config"
+            ]
+          },
           "guacamole": {
             "type": "object",
             "properties": {

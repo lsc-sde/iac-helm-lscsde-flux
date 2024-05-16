@@ -9,7 +9,7 @@ metadata:
 spec:
   force: false
   interval: 1m0s
-  path: ./
+  path: {{ include "flux.path" .repository }} 
   prune: true
   retryInterval: 1m0s
   serviceAccountName: flux-applier

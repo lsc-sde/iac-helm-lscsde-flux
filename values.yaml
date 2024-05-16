@@ -109,3 +109,13 @@ components:
       name: guacamole
       url: https://github.com/lsc-sde/iac-flux-guacamole
       branch: main
+      path: /
+  workspace_definitions:
+    state: "enabled"
+    chart_version: ""
+    namespace: jupyterhub
+    repository:
+      name: workspace-definitions
+      url:  https://github.com/lsc-sde/iac-flux-workspace-definitions
+      branch: main
+      path: "production"
