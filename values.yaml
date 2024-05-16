@@ -113,7 +113,7 @@ components:
   workspace_definitions:
     state: "enabled"
     chart_version: ""
-    namespace: jupyterhub
+    namespace: workspace-definitions
     repository:
       name: workspace-definitions
       url:  https://github.com/lsc-sde/iac-flux-workspace-definitions
