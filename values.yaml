@@ -14,6 +14,9 @@ dns:
 naming:
   suffix: ""
 
+deployment:
+  includeSecretDistributions: true
+
 components:
   aks_dns:
     state: "enabled"
@@ -27,6 +30,10 @@ components:
       name: analytics-workspace-management
       url: https://github.com/lsc-sde/iac-flux-analytics-workspace-management
       branch: main
+      secret:
+        requiresAuth: false
+        usernameKey: ""
+        passwordKey: ""
   cert_manager:
     state: "enabled"
     namespace: cert-manager
@@ -35,6 +42,10 @@ components:
       name: certmanager
       url: https://github.com/lsc-sde/iac-flux-certmanager
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   trust_manager:
     state: "enabled"
     namespace: cert-manager
@@ -47,6 +58,10 @@ components:
       name: github-runner
       url: https://github.com/lsc-sde/iac-flux-github-action-runners
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   ingress_nginx:
     state: "enabled"
     namespace: nginx
@@ -55,6 +70,10 @@ components:
       name: nginx
       url: https://github.com/lsc-sde/iac-flux-nginx
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   jupyter_hub:
     state: "enabled"
     namespace: jupyterhub
@@ -63,6 +82,10 @@ components:
       name: jupyter
       url: https://github.com/lsc-sde/iac-flux-jupyter
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   keda:
     state: "enabled"
     namespace: keda
@@ -71,6 +94,10 @@ components:
       name: keda
       url: https://github.com/lsc-sde/iac-flux-keda
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   metrics_server:
     state: "enabled"
     chart_version: ""
@@ -83,6 +110,10 @@ components:
       name: ohdsi
       url: https://github.com/lsc-sde/iac-flux-ohdsi
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   secrets_distributor:
     state: "enabled"
     namespace: secrets-distributor
@@ -91,6 +122,10 @@ components:
       name: secrets-distributor
       url: https://github.com/lsc-sde/iac-flux-secrets-distributor
       branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
     config: |-
       volumeMounts:
         - name: secrets-store-inline
@@ -110,12 +145,20 @@ components:
       url: https://github.com/lsc-sde/iac-flux-guacamole
       branch: main
       path: /
+      requiresAuth: false
+      secret:
+        usernameKey: "WorkspaceReposPatToken"
+        passwordKey: ""
   workspace_definitions:
     state: "enabled"
     chart_version: ""
     namespace: workspace-definitions
     repository:
       name: workspace-definitions
-      url:  https://github.com/lsc-sde/iac-flux-workspace-definitions
+      url:  https://github.com/lsc-sde/iac-flux-example-workspace-definitions
       branch: main
-      path: "production"
+      path: ""
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""

@@ -12,6 +12,12 @@ spec:
     branch: "{{ .repository.branch }}"
   timeout: 60s
   url: "{{ .repository.url }}"
+{{ if hasKey .repository "requiresAuth" }}
+{{ if eq .repository.requiresAuth true }}
+  secretRef:
+    name: "{{ printf "%s%s-pat-token" .repository.name $.Values.naming.suffix }}"
+{{ end }}
+{{ end }}
 ---
 {{- end -}}
 {{ end }}
