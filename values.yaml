@@ -147,7 +147,7 @@ components:
       path: /
       requiresAuth: false
       secret:
-        usernameKey: "WorkspaceReposPatToken"
+        usernameKey: ""
         passwordKey: ""
   workspace_definitions:
     state: "enabled"
