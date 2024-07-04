@@ -15,3 +15,4 @@ data:
   analytics_workspace_management_namespace: {{ .Values.components.analytics_workspace_management.namespace }}
   metrics_server_namespace: {{ .Values.components.metrics_server.namespace }}
   guacamole_namespace: {{ .Values.components.guacamole.namespace }}
+  superset_namespace: {{ .Values.components.superset.namespace }}
