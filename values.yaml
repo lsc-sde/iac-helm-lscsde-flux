@@ -162,3 +162,15 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  superset:
+    state: "enabled"
+    namespace: superset
+    chart_version: ""
+    repository:
+      name: superset
+      url: https://github.com/lsc-sde/iac-flux-apache-superset
+      branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
