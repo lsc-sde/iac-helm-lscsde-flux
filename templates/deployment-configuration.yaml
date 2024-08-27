@@ -26,3 +26,5 @@ data:
   metrics_server_chart_version: "{{ .Values.components.metrics_server.chart_version }}"
   guacamole_chart_version: "{{ .Values.components.guacamole.chart_version }}"
   guacamole_branch: "{{ .Values.components.guacamole.repository.branch }}"
+  rabbitmq_chart_version: "{{ .Values.components.rabbitmq.chart_version }}"
+  rabbitmq_branch: "{{ .Values.components.rabbitmq.repository.branch }}"

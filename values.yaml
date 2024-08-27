@@ -174,3 +174,15 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  rabbitmq:
+    state: "enabled"
+    namespace: rabbitmq
+    chart_version: ""
+    repository:
+      name: rabbitmq
+      url: https://github.com/lsc-sde/iac-flux-rabbitmq
+      branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""

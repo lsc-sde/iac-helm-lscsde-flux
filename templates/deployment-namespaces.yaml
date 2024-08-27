@@ -16,3 +16,4 @@ data:
   metrics_server_namespace: {{ .Values.components.metrics_server.namespace }}
   guacamole_namespace: {{ .Values.components.guacamole.namespace }}
   superset_namespace: {{ .Values.components.superset.namespace }}
+  rabbitmq_namespace: {{ .Values.components.rabbitmq.namespace }}
