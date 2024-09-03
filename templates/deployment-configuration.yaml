@@ -28,3 +28,5 @@ data:
   guacamole_branch: "{{ .Values.components.guacamole.repository.branch }}"
   rabbitmq_chart_version: "{{ .Values.components.rabbitmq.chart_version }}"
   rabbitmq_branch: "{{ .Values.components.rabbitmq.repository.branch }}"
+  observability_metrics_version: "{{ .Values.components.observability_metrics.chart_version }}"
+  observability_metrics_branch: "{{ .Values.components.observability_metrics.repository.branch }}"

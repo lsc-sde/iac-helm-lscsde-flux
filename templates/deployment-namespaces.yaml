@@ -17,3 +17,4 @@ data:
   guacamole_namespace: {{ .Values.components.guacamole.namespace }}
   superset_namespace: {{ .Values.components.superset.namespace }}
   rabbitmq_namespace: {{ .Values.components.rabbitmq.namespace }}
+  observability_metrics_namespace: {{ .Values.components.observability_metrics.namespace }}

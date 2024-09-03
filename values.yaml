@@ -186,3 +186,15 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  observability_metrics:
+    state: "enabled"
+    namespace: observability-metrics
+    chart_version: ""
+    repository:
+      name: observability-metrics
+      url: https://github.com/lsc-sde/iac-flux-observability-metrics
+      branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
