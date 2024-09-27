@@ -136,6 +136,19 @@ components:
           hostPath:
             path: /run/desktop/mnt/host/c/tmp/secrets
             type: Directory
+  keycloak:
+    state: "enabled"
+    chart_version: ""
+    namespace: keycloak
+    repository:
+      name: keycloak
+      url: https://github.com/lsc-sde/iac-flux-keycloak
+      branch: main
+      path: /cluster/azure/
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
   guacamole:
     state: "disabled"
     chart_version: ""
