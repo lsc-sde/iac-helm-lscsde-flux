@@ -3,18 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ printf "deployment-namespaces%s" .Values.naming.suffix }}
 data:
-  ohdsi_namespace: {{ .Values.components.ohdsi.namespace }}
-  secrets_distributor_namespace: {{ .Values.components.secrets_distributor.namespace }}
-  certmanager_namespace: {{ .Values.components.cert_manager.namespace }}
-  trustmanager_namespace: {{ .Values.components.trust_manager.namespace }}
-  github_runner_namespace: {{ .Values.components.github_runner.namespace }}
-  aks_dns_namespace: {{ .Values.components.aks_dns.namespace }}
-  nginx_namespace: {{ .Values.components.ingress_nginx.namespace  }}
-  keda_namespace: {{ .Values.components.keda.namespace }}
-  jupyter_namespace: {{ .Values.components.jupyter_hub.namespace }}
-  analytics_workspace_management_namespace: {{ .Values.components.analytics_workspace_management.namespace }}
-  metrics_server_namespace: {{ .Values.components.metrics_server.namespace }}
-  guacamole_namespace: {{ .Values.components.guacamole.namespace }}
-  superset_namespace: {{ .Values.components.superset.namespace }}
-  rabbitmq_namespace: {{ .Values.components.rabbitmq.namespace }}
-  observability_metrics_namespace: {{ .Values.components.observability_metrics.namespace }}
+{{ range $key, $value := .Values.components }}
+{{ if hasKey $value "namespace"}}
+  {{ $key }}_namespace: {{ $value.namespace }}
+{{ end }}
+{{ end }}
