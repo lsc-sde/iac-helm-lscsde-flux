@@ -10,10 +10,10 @@ data:
   {{ $key }}_branch: {{ $value.branch }}
 {{ end }}
 {{ if hasKey $value "chart_version"}}
-  {{ $key }}_char_version: {{ $value.branch }}
+  {{ $key }}_chart_version: {{ $value.branch }}
 {{ end }}
 {{ if hasKey $value "image"}}
-  {{ $key }}_image: {{ $value.image }}
+  {{ $key }}_image: {{ $value.branch }}
 {{ end }}
 {{ end }}
 
