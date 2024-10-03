@@ -13,7 +13,7 @@ data:
   {{ $key }}_chart_version: {{ $value.chart_version }}
 {{ end }}
 {{ if hasKey $value "image"}}
-  {{ $key }}_image: {{ $value.branch }}
+  {{ $key }}_image: {{ $value.image }}
 {{ end }}
 {{ end }}
 
