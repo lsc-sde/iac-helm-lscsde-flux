@@ -151,14 +151,14 @@ components:
         usernameKey: ""
         passwordKey: ""
   guacamole:
-    state: "disabled"
+    state: "enabled"
     chart_version: ""
     namespace: guacamole
     repository:
       name: guacamole
       url: https://github.com/lsc-sde/iac-flux-guacamole
       branch: main
-      path: /
+      path: /cluster/azure/
       requiresAuth: false
       secret:
         usernameKey: ""
