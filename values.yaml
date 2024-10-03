@@ -140,6 +140,7 @@ components:
     state: "enabled"
     chart_version: ""
     namespace: keycloak
+    image: ""
     repository:
       name: keycloak
       url: https://github.com/lsc-sde/iac-flux-keycloak
