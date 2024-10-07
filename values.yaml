@@ -212,3 +212,17 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  awms_guacamole:
+    state: "enabled"
+    chart_version: ""
+    namespace: guacamole
+    image: ""
+    repository:
+      name: awms-guacamole
+      url: https://github.com/lsc-sde/awms-guacamole-operator
+      branch: main
+      path: /flux/azure/
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
