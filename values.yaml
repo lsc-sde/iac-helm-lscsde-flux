@@ -215,7 +215,7 @@ components:
   awms_guacamole:
     state: "enabled"
     chart_version: ""
-    namespace: guacamole
+    namespace: awms-guacamole
     image: ""
     repository:
       name: awms-guacamole
