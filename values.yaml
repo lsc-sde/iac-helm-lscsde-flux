@@ -226,3 +226,17 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  awms_crate:
+    state: "enabled"
+    chart_version: ""
+    namespace: awms-crate
+    image: ""
+    repository:
+      name: awms-crate
+      url: https://github.com/lsc-sde/awms-crate-operator
+      branch: main
+      path: /flux/azure/
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
