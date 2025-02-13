@@ -240,3 +240,15 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  neulander:
+    state: "enabled"
+    namespace: neulander
+    chart_version: ""
+    repository:
+      name: neulander
+      url: https://github.com/lsc-sde/iac-flux-neulander
+      branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
