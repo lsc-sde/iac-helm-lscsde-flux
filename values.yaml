@@ -254,7 +254,7 @@ components:
         passwordKey: ""
 cr8tor_publisher:
     state: "enabled"
-    namespace: neulander
+    namespace: cr8tor-publisher
     chart_version: ""
     repository:
       name: cr8tor-publisher
