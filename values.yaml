@@ -252,3 +252,16 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+cr8tor_publisher:
+    state: "enabled"
+    namespace: neulander
+    chart_version: ""
+    repository:
+      name: cr8tor-publisher
+      url: https://github.com/lsc-sde-crates/cr8tor-publisher
+      branch: main
+      path: /fluxcd/azure/
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
