@@ -252,7 +252,7 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
-cr8tor_publisher:
+  cr8tor_publisher:
     state: "enabled"
     namespace: cr8tor-publisher
     chart_version: ""
