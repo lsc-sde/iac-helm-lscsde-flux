@@ -15,6 +15,12 @@ data:
 {{ if hasKey $value "image"}}
   {{ $key }}_image: {{ $value.image }}
 {{ end }}
+{{ if hasKey $value "storage_account_lsc"}}
+  {{ $key }}_storage_account_lsc: {{ $value.storage_account_lsc }}
+{{ end }}
+{{ if hasKey $value "storage_account_lsc"}}
+  {{ $key }}_storage_account_nw: {{ $value.storage_account_nw }}
+{{ end }}
 {{ end }}
 
   
