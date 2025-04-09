@@ -21,6 +21,12 @@ data:
 {{ if hasKey $value "storage_account_lsc"}}
   {{ $key }}_storage_account_nw: {{ $value.storage_account_nw }}
 {{ end }}
+{{ if hasKey $value "storage_account_rg"}}
+  {{ $key }}_storage_account_rg: {{ $value.storage_account_rg }}
+{{ end }}
+{{ if hasKey $value "storage_account_sub_id"}}
+  {{ $key }}_storage_account_sub_id: {{ $value.storage_account_sub_id }}
+{{ end }}
 {{ end }}
 
   
