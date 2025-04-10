@@ -265,3 +265,15 @@ components:
       secret:
         usernameKey: ""
         passwordKey: ""
+  tobiko:
+    state: "enabled"
+    namespace: tobiko
+    chart_version: ""
+    repository:
+      name: tobiko
+      url: https://github.com/lsc-sde/iac-flux-tobiko
+      branch: main
+      requiresAuth: false
+      secret:
+        usernameKey: ""
+        passwordKey: ""
