@@ -104,7 +104,7 @@ components:
     chart_url: https://kubernetes-sigs.github.io/metrics-server/ 
     namespace: metrics-server
   ohdsi:
-    state: "enabled"
+    state: "disabled"
     namespace: ohdsi
     repository:
       name: ohdsi
