@@ -177,7 +177,7 @@ components:
         usernameKey: ""
         passwordKey: ""
   superset:
-    state: "enabled"
+    state: "disabled"
     namespace: superset
     chart_version: ""
     repository:
