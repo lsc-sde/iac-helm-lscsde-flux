@@ -99,7 +99,7 @@ components:
         usernameKey: ""
         passwordKey: ""
   metrics_server:
-    state: "enabled"
+    state: "disabled"
     chart_version: ""
     chart_url: https://kubernetes-sigs.github.io/metrics-server/ 
     namespace: metrics-server
